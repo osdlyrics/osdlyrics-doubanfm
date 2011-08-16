@@ -1,0 +1,14 @@
+{
+  "name": "豆瓣FM OSD Lyrics支持",
+  "version": "1.0",
+  "description": "使用OSD Lyrics显示豆瓣FM歌词",
+  "content_scripts": [
+    {
+      "matches": ["http://douban.fm/"],
+      "js": ["douban.js", "jquery-1.6.2.min.js"]
+    }
+  ],
+  "permissions": [
+    "http://localhost/"
+  ]
+}
