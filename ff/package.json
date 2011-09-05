@@ -1,0 +1,9 @@
+{
+    "name": "osdlyrics-doubanfm", 
+    "license": "GPL 3.0", 
+    "author": "Tiger Soldier", 
+    "version": "1.0", 
+    "fullName": "Douban FM for OSD Lyrics", 
+    "id": "jid1-tpeRu7ABM810Fw", 
+    "description": "Make Douban FM use OSD Lyrics to show lyrics."
+}
