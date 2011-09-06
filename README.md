@@ -67,6 +67,13 @@ Run OSD Lyrics. If your OSD Lyrics version is less than 0.5, run the player supp
 
 Open [Douban FM](http://douban.fm), then enjoy your music and lyric :)
 
+Known Issues
+==========
+* If you pause then continue to play, the progress of lyrics will be wrong.
+* Since we can't get the position of current track, if the player paused because of network problem, the time will be different between OSD Lyrics and Douban FM.
+* As the reason describe above, the progress may be wrong with the first track.
+* Cannot control the player to play, pause or change to the next track.
+
 Development Notes
 ==========
 
@@ -132,3 +139,10 @@ ArchLinux用户需要使用`python2`代替。
 打开OSD Lyrics。如果0.5版还没发布，需要在启动OSD Lyrics之前按上节指示运行播放器支持组件。
 
 最后，打开[豆瓣电台](http://douban.fm)，边听歌边享受歌词吧:)
+
+已知问题
+==========
+* 暂停再继续，时间会错位
+* 由于无法获得真正的播放时间，一旦卡住，时间将不同步
+* 同样由于上述问题，第一首歌的时间可能会有偏差
+* 无法从OSD Lyrics控制播放、暂停、下一首
