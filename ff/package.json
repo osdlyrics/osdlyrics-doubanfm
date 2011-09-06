@@ -5,5 +5,7 @@
     "version": "1.0", 
     "fullName": "Douban FM for OSD Lyrics", 
     "id": "jid1-tpeRu7ABM810Fw", 
-    "description": "Make Douban FM use OSD Lyrics to show lyrics."
+    "description": "Make Douban FM use OSD Lyrics to show lyrics.",
+    "icon": "icon.png",
+    "icon64": "icon.png"
 }

@@ -51,7 +51,7 @@ osdlyrics.prototype = {
                                                     1000);
                  },
                  error: function(data, code) {
-                     console.log('Cannot connect to OSD Lyrics\nerrcode: ' + code);
+                     console.error('Cannot connect to OSD Lyrics\nerrcode: ' + data + code);
                      this.connected = false;
                  }
                });
