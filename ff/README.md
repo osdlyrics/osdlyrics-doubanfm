@@ -69,6 +69,7 @@ Open [Douban FM](http://douban.fm), then enjoy your music and lyric :)
 
 Known Issues
 ==========
+
 * If you pause then continue to play, the progress of lyrics will be wrong.
 * Since we can't get the position of current track, if the player paused because of network problem, the time will be different between OSD Lyrics and Douban FM.
 * As the reason describe above, the progress may be wrong with the first track.
@@ -76,6 +77,8 @@ Known Issues
 
 Development Notes
 ==========
+
+This extension communicates with OSD Lyrics through the [HTTP Player Protocol](https://github.com/osdlyrics/osdlyrics/blob/0.5-series/doc/http.rst)
 
 ----
 
