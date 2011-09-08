@@ -77,6 +77,8 @@ Known Issues
 Development Notes
 ==========
 
+This extension communicates with OSD Lyrics through [HTTP API](https://github.com/osdlyrics/osdlyrics/blob/0.5-series/doc/http.rst).
+
 ----
 
 简介
