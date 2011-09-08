@@ -56,13 +56,14 @@ function osdlyrics(id) {
 osdlyrics.prototype = {
     init: function(id) {
         this.id = '';
-        this.connected = false;
+        this.status = 'disconnected';
         this.timestamp = 0;
+        this._pending_calls = [];
     },
     connect: function() {
-        if (this.connected)
+        if (this.status == 'connected' || this.status == 'connecting')
             return;
-        this.connected = true;
+        this.status = 'connecting';
         var thisObj = this;
         console.log('connect');
         $.ajax({ url: get_request_url('connect'),
@@ -73,70 +74,95 @@ osdlyrics.prototype = {
                  success: function(data) {
                      console.log('id:' + data.id);
                      this.id = data.id;
-                     this.connected = true;
+                     this.status = 'connected';
                      var thisObj = this;
+                     this._send_pending_calls();
                      this.query_timer = setInterval(function() { thisObj.query(); },
                                                     1000);
                  },
                  error: function(jqXHR, textStatus, errorThrown) {
                      console.error('Cannot connect to OSD Lyrics\nerr: ' + 
                                    errorThrown);
-                     this.connected = false;
+                     this.status = 'disconnected';
                  }
                });
+    },
+    _call: function(request) {
+        switch (this.status) {
+        case 'connected':
+            if (!request.data)
+                request.data = { id: this.id };
+            else
+                request.data.id = this.id;
+            $.ajax(request);
+            break;
+        case 'connecting':
+            this._pending_calls.push(request);
+        }
+    },
+    _send_pending_calls: function() {
+        for (var i in this._pending_calls)
+            this._call(this._pending_calls[i]);
+        this._pending_calls = [];
     },
     playpause: function(play) {
         var status = 'playing';
         if (!play)
             status = 'paused';
-        $.ajax({ url: get_request_url('status_changed'),
-                 data: { id: this.id, status: status },
-                 context: this,
-                 error: function() {
-                     this.disconnect();
-                 }
-               });
+        this._call({ url: get_request_url('status_changed'),
+                     data: { id: this.id, status: status },
+                     context: this,
+                     error: function() {
+                         this.disconnect(true);
+                     }
+                   });
     },
     query: function() {
         var thisObj = this;
-        $.ajax({ url: get_request_url('query'),
-                 data: { id: this.id, timestamp: this.timestamp },
-                 context: this,
-                 dataType: 'json',
-                 success: function(data) {
-                     if (data.timestamp > this.timestamp)
-                         this.timestamp = data.timestamp;
-                     if (data.cmds.length > 0)
-                         console.log('cmds:' + data.cmds);
-                 },
-                 error: function() {
-                     this.disconnect();
-                 }
-               });
+        this._call({ url: get_request_url('query'),
+                     data: { id: this.id, timestamp: this.timestamp },
+                     context: this,
+                     dataType: 'json',
+                     success: function(data) {
+                         if (data.timestamp > this.timestamp)
+                             this.timestamp = data.timestamp;
+                         if (data.cmds.length > 0)
+                             console.log('cmds:' + data.cmds);
+                     },
+                     error: function() {
+                         this.disconnect(true);
+                     }
+                   });
     },
     track_changed: function(song) {
-        $.ajax({ url: get_request_url('track_changed'),
-                 data: { id: this.id,
-                         status: 'playing',
-                         title: song.title,
-                         artist: song.artist,
-                         album: song.albumtitle,
-                         length: song.len * 1000,
-                         arturl: song.picture },
-                 context: this,
-                 error: function() {
-                     this.disconnect();
-                 }
-               });
+        this._call({ url: get_request_url('track_changed'),
+                     data: { id: this.id,
+                             status: 'playing',
+                             title: song.title,
+                             artist: song.artist,
+                             album: song.albumtitle,
+                             length: song.len * 1000,
+                             arturl: song.picture },
+                     context: this,
+                     error: function() {
+                         this.disconnect(true);
+                     }
+                   });
     },
-    disconnect: function() {
-        if (!this.connected)
+    disconnect: function(iserror) {
+        if (this.status == 'disconnected')
             return;
-        this.connected = false;
-        this.id = 0;
+        if (this.status == 'connected' && ! iserror) {
+            $.ajax({ url: get_request_url('disconnect'),
+                     data: { id: this.id }
+                   });
+        }
+        this.status = 'disconnected';
+        this.id = '';
         timers.clearInterval(this.query_timer);
         this.query_timer = null;
         this.timestamp = 0;
+        this._pending_calls = [];
     },
     handleEvent: function(event) {
         var playerEvents = {
