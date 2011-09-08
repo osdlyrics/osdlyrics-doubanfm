@@ -15,6 +15,9 @@ pageMod.PageMod({
                     worker.conn.connect();
                     worker.conn.handleEvent(data);
                 });
+      worker.on('detach', function() {
+                    worker.conn.disconnect();
+                });
   }
 });
 

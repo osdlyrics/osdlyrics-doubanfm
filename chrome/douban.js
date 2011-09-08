@@ -57,3 +57,6 @@ function inject() {
 
 var conn = new osdlyrics();
 inject();
+$(window).unload(function () {
+                     conn.disconnect();
+                 });
