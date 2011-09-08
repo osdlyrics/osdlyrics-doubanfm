@@ -5,9 +5,9 @@
   "content_scripts": [
     {
       "matches": ["http://douban.fm/"],
-      "js": ["douban.js",
-             "jquery-1.6.2.min.js",
-             "osdlyrics.js"]
+      "js": ["jquery-1.6.2.min.js",
+             "osdlyrics.js",
+             "douban.js"]
     }
   ],
   "icons": { "64": "icon.png",
