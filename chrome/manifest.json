@@ -14,5 +14,6 @@
              "128": "icon.png" },
   "permissions": [
     "http://localhost/"
-  ]
+  ],
+  "update_url": "http://osdlyrics.github.com/osdlyrics-doubanfm/chrome/update.xml"
 }
