@@ -14,54 +14,21 @@ The extension requires OSD Lyrics 0.5 or newer versions.
 
 However, by the time this document is written, OSD Lyrics 0.5 is not ready. If OSD Lyrics 0.5 is released, you can skip this section and jump to the next section.
 
-To run OSD Lyrics 0.5, you need to download from github and install manually.
-
-Get source code of 0.5 series
-----------
-
-Clone the source repository:
-
-    git clone git://github.com/osdlyrics/osdlyrics.git
-    cd osdlyrics
-
-Change to 0.5 branch:
-
-    git checkout --track origin/0.5-series
-
-Now you get the code of OSD Lyrics 0.5
-
-Compile and Install
-----------
-
-When the source code is ready, run configure script:
-
-    ./autogen.sh
-
-If you are an ArchLinux user, you need to tell it to use Python 2.x:
-
-    ./autogen.sh  PYTHON=/usr/bin/python2
-
-Now you can build and install the program:
-
-    make
-    sudo make install
-
-That's it :)
-
-Run the OSD Lyrics daemon
-----------
-OSD Lyrics 0.5 has been divided into two parts: a frontend GUI and a backend daemon. You need to run the daemon to connect to Douban FM:
-
-    osdlyrics-daemon
+To install OSD Lyrics 0.5, follow the instructions in [OSD Lyrics' wiki page](http://code.google.com/p/osd-lyrics/wiki/InstallDaemon).
 
 How to use
 ==========
 
 Download and install the extension for your extension.
 
-Run OSD Lyrics. If your OSD Lyrics version is less than 0.5, run the player support daemon above before you run OSD Lyrics.
+ - Chrome/ium: http://osdlyrics.github.com/osdlyrics-doubanfm/chrome/osdlyrics-doubanfm.crx
+ - Firefox: http://osdlyrics.github.com/osdlyrics-doubanfm/firefox/osdlyrics-doubanfm.xpi
 
-Open [Douban FM](http://douban.fm), then enjoy your music and lyric :)
+You need to run the daemon before running OSD Lyrics
+
+    osdlyrics-daemon
+
+Run OSD Lyrics and open [Douban FM](http://douban.fm). Enjoy your music and lyric :)
 
 Known Issues
 ==========
@@ -87,55 +54,21 @@ This extension communicates with OSD Lyrics through [HTTP API](https://github.co
 
 OSD Lyrics 0.5才能支持豆瓣电台，但在本文档写成时该版本尚未完成开发。以下说明如何使用开发版的OSD Lyrics 0.5。如果你已经用上了OSD Lyrics 0.5或更高版本，你可以跳过本节。
 
-下载0.5版的代码
-----------
-
-从github中获取OSD Lyrics的代码库：
-
-    git clone git://github.com/osdlyrics/osdlyrics.git
-    cd osdlyrics
-
-将代码库切换到0.5分支：
-
-    git checkout --track origin/0.5-series
-
-至此0.5版本的代码已经获取到本地了。
-
-编译安装
-----------
-
-首先需要运行基本配置：
-
-    ./autogen.sh
-
-ArchLinux用户需要指定使用Python2.x：
-
-    ./autogen.sh  PYTHON=/usr/bin/python2
-
-接下来编译安装：
-
-    make
-    sudo make install
-
-搞定:)
-
-运行后台进程
-----------
-
-OSD Lyrics 0.5 被拆分为前台界面和后台进程两部分，现在这两部分任未互通，需要单独运行用以支持豆瓣的后台进程：
-
-    osdlyrics-daemon
-
-当OSD Lyrics 0.5完成时，后台进程会随着前台界面自动启动，不必再手动运行后台进程。
+要安装0.5版，请参考OSD Lyrics的[wiki页面](http://code.google.com/p/osd-lyrics/wiki/InstallDaemon)。
 
 使用方法
 ==========
 
 根据你的浏览器安装对应的扩展。
 
-打开OSD Lyrics。如果0.5版还没发布，需要按上节说明安装并运行OSD Lyrics 0.5后台进程。
+ - Chrome/ium: http://osdlyrics.github.com/osdlyrics-doubanfm/chrome/osdlyrics-doubanfm.crx
+ - Firefox: http://osdlyrics.github.com/osdlyrics-doubanfm/firefox/osdlyrics-doubanfm.xpi
 
-最后，打开[豆瓣电台](http://douban.fm)，边听歌边享受歌词吧:)
+在运行OSD Lyrics之前，运行0.5版引入的后台进程：
+
+    osdlyrics-daemon
+
+现在可以运行OSD Lyrics，打开[豆瓣电台](http://douban.fm)，边听歌边享受歌词了:)
 
 已知问题
 ==========
