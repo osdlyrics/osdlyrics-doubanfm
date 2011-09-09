@@ -48,15 +48,11 @@ Now you can build and install the program:
 
 That's it :)
 
-Run the player support daemon
+Run the OSD Lyrics daemon
 ----------
+OSD Lyrics 0.5 has been divided into two parts: a frontend GUI and a backend daemon. You need to run the daemon to connect to Douban FM:
 
-With OSD Lyrics 0.5 installed, you can run the player support daemon with:
-
-    python /usr/local/lib/osdlyrics/daemon/player.py
-
-If you are an ArchLinux user, use `python2` instead of `python`.
-
+    osdlyrics-daemon
 
 How to use
 ==========
@@ -123,22 +119,21 @@ ArchLinux用户需要指定使用Python2.x：
 
 搞定:)
 
-运行播放器支持组件
+运行后台进程
 ----------
 
-安装完毕后，使用如下命令运行播放器支持组件：
+OSD Lyrics 0.5 被拆分为前台界面和后台进程两部分，现在这两部分任未互通，需要单独运行用以支持豆瓣的后台进程：
 
-    python /usr/local/lib/osdlyrics/daemon/player.py
+    osdlyrics-daemon
 
-ArchLinux用户需要使用`python2`代替。
-
+当OSD Lyrics 0.5完成时，后台进程会随着前台界面自动启动，不必再手动运行后台进程。
 
 使用方法
 ==========
 
 根据你的浏览器安装对应的扩展。
 
-打开OSD Lyrics。如果0.5版还没发布，需要在启动OSD Lyrics之前按上节指示运行播放器支持组件。
+打开OSD Lyrics。如果0.5版还没发布，需要按上节说明安装并运行OSD Lyrics 0.5后台进程。
 
 最后，打开[豆瓣电台](http://douban.fm)，边听歌边享受歌词吧:)
 
