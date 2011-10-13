@@ -2,10 +2,10 @@
     "name": "osdlyrics-doubanfm", 
     "license": "GPL 3.0", 
     "author": "Tiger Soldier", 
-    "version": "1.0", 
-    "fullName": "Douban FM for OSD Lyrics", 
+    "version": "1.1", 
+    "fullName": "豆瓣电台OSD Lyrics插件", 
     "id": "jid1-tpeRu7ABM810Fw", 
-    "description": "Make Douban FM use OSD Lyrics to show lyrics.",
+    "description": "使用OSD Lyrics显示豆瓣电台歌词",
     "icon": "icon.png",
     "icon64": "icon.png"
 }

@@ -1,6 +1,6 @@
 {
   "name": "豆瓣电台OSD Lyrics插件",
-  "version": "1.0",
+  "version": "1.1",
   "description": "使用OSD Lyrics显示豆瓣电台歌词",
   "content_scripts": [
     {
