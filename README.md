@@ -62,7 +62,7 @@ OSD Lyrics 0.5才能支持豆瓣电台，但在本文档写成时该版本尚未
 根据你的浏览器安装对应的扩展。
 
  - Chrome/ium: http://osdlyrics.github.com/osdlyrics-doubanfm/chrome/osdlyrics-doubanfm.crx
- - Firefox: http://osdlyrics.github.com/osdlyrics-doubanfm/firefox/osdlyrics-doubanfm.xpi
+ - Firefox: https://addons.mozilla.org/en-US/firefox/addon/douban-fm-for-osd-lyrics/
 
 在运行OSD Lyrics之前，运行0.5版引入的后台进程：
 
