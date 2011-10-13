@@ -22,7 +22,7 @@ How to use
 Download and install the extension for your extension.
 
  - Chrome/ium: http://osdlyrics.github.com/osdlyrics-doubanfm/chrome/osdlyrics-doubanfm.crx
- - Firefox: http://osdlyrics.github.com/osdlyrics-doubanfm/firefox/osdlyrics-doubanfm.xpi
+ - Firefox: https://addons.mozilla.org/en-US/firefox/addon/douban-fm-for-osd-lyrics/
 
 You need to run the daemon before running OSD Lyrics
 
